@@ -15,5 +15,15 @@ const createSearch = async (req, res) => {
     }
 }
 
+const getAllSearch = async (req, res) => {
+    try {
+        const response = await SearchService.getAllSearch();
+        return res.status(200).json({ response });
+    } catch (error) {
+        return res.status(500).json({
+            EM: 'Error'
+        })
+    }
+}
 
-module.exports = { createSearch}
+module.exports = { createSearch, getAllSearch}
