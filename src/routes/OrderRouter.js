@@ -12,7 +12,11 @@ const OrderRouter = (app) => {
   );
   router.post("/create", OrderController.createOrder);
   router.get("/get-all-order", OrderController.getAllOder);
-  
+  router.get(
+    "/get-all-order/:id",
+    authUserMiddleware,
+    OrderController.getAllOrderDetails
+  );
   return app.use("/api/order", router);
 };
 
