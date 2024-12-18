@@ -20,6 +20,7 @@ const UserRouter = (app) => {
   router.post("/delete-many", authMiddleware, UserController.deleteManyUser);
   router.post("/refresh-token", UserController.refreshToken);
   router.post("/logout-user", UserController.logoutUser);
+  router.post("/chat-gpt", UserController.chatGPT);
   return app.use("/api/user", router);
 };
 

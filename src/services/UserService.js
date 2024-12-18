@@ -187,6 +187,31 @@ const deleteManyUser = (ids) => {
     }
   });
 };
+const chatGPT = (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await nodeNLP(data);
+      console.log("res", res);
+      if (res === undefined) {
+        const result = await questionAI(data);
+        console.log("result", result);
+        resolve({
+          status: "Ok",
+          EC: 1,
+          message: result,
+        });
+      } else {
+        resolve({
+          status: "Ok",
+          EC: 1,
+          message: res,
+        });
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 module.exports = {
   createUser,
   loginUser,
@@ -195,4 +220,5 @@ module.exports = {
   getAllUser,
   getDetailUser,
   deleteManyUser,
+  chatGPT,
 };
