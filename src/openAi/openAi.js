@@ -161,6 +161,35 @@ async function nodeNLP(message) {
     "Tôi có thể tìm kiếm sản phẩm như thế nào",
     "greetings.searchProduct"
   );
+  nlp.addDocument(
+    "vi",
+    "Các cách tìm kiếm sản phẩm",
+    "greetings.searchProduct"
+  );
+  nlp.addDocument("vi", "tìm kiếm", "greetings.searchProduct");
+  nlp.addDocument("vi", "Tìm kiếm", "greetings.searchProduct");
+  nlp.addDocument("vi", "tìm kiếm sản phẩm", "greetings.searchProduct");
+  nlp.addDocument("vi", "Có các loại áo nào", "greetings.typeShirt");
+  nlp.addDocument("vi", "Có các loại nón nào", "greetings.typeHat");
+  nlp.addDocument("vi", "Giới thiệu cho tôi vài mẫu nón", "greetings.typeHat");
+  nlp.addDocument("vi", "cho tôi xem vài mẫu nón", "greetings.typeHat");
+  nlp.addDocument("vi", "các loại nón", "greetings.typeHat");
+  nlp.addDocument("vi", "giới thiệu về bạn", "greetings.who");
+  nlp.addDocument("vi", "bạn là ai", "greetings.who");
+  nlp.addDocument("vi", "bạn là gì của shop", "greetings.who");
+  nlp.addDocument("vi", "Có", "greetings.Yes");
+  nlp.addDocument("vi", "Yes", "greetings.Yes");
+  nlp.addDocument("vi", "Mình muốn hỏi bạn vài câu", "greetings.Yes");
+
+  nlp.addDocument(
+    "vi",
+    "hãy cho tôi thông tin các loại áo",
+    "greetings.typeShirt"
+  );
+  nlp.addDocument("vi", "gồm các loại áo nào", "greetings.typeShirt");
+  nlp.addDocument("vi", "những loại áo nào", "greetings.typeShirt");
+  nlp.addDocument("vi", "shop có các loại giày nào", "greetings.typeShoes");
+  nlp.addDocument("vi", "Đó là những loại giày nào", "greetings.typeShoes");
 
   await nlp.train();
   const response = await nlp.process("vi", message);
