@@ -34,4 +34,20 @@ const getAllShop = () => {
     }
   });
 };
-module.exports = { createNameShop, getAllShop };
+const getShopById = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const shop = await Shop.findById(id);
+      if (shop) {
+        resolve({
+          status: "Ok",
+          message: "Get success!!",
+          data: shop,
+        });
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+module.exports = { createNameShop, getAllShop, getShopById };
