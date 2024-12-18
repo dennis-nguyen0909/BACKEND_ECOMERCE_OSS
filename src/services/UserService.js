@@ -35,7 +35,63 @@ const createUser = (data) => {
     }
   });
 };
+const loginUser = (userLogin) => {
+  return new Promise(async (resolve, reject) => {
+    //#1 Lấy data được truyền từ controller
+    const { email, password } = userLogin;
+    try {
+      //#2 Kiểm tra nếu user đã tồn tại trong db thì cho login
+      const checkUserExist = await User.findOne({
+        email: email,
+      });
+      if (checkUserExist === null) {
+        resolve({
+          status: "Error",
+          message: "Tài khoản của bạn không tồn tại !!",
+          EC: 0,
+        });
+      }
+      const comparePassword = bcrypt.compareSync(
+        password,
+        checkUserExist.password
+      );
+
+      //#3 giải pass đã bcrypt
+      if (comparePassword === false) {
+        resolve({
+          status: "Error",
+          message: "Tài khoản hoặc password không đúng!",
+          EC: 0,
+        });
+      }
+      //#4 tạo access_token và trả về
+      const access_token = await generalAccessToken({
+        id: checkUserExist.id,
+        isAdmin: checkUserExist.isAdmin,
+        isEmployee: checkUserExist.isEmployee,
+      });
+
+      //#5 tạo refresh_token để khi access_token hết hạn thì sẽ lấy refresh_token
+      const refresh_token = await generalRefreshToken({
+        id: checkUserExist.id,
+        isAdmin: checkUserExist.isAdmin,
+        isEmployee: checkUserExist.isEmployee,
+      });
+
+      resolve({
+        status: "Ok",
+        message: "Login Success!!",
+        EC: 1,
+        access_token,
+        refresh_token,
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 
 module.exports = {
   createUser,
+  loginUser,
 };

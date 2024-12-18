@@ -1,5 +1,4 @@
 const UserService = require("../services/UserService");
-const JWTservice = require("../services/JWTservice");
 const createUser = async (req, res) => {
   try {
     //#1. Lấy ra dữ liệu & validation
@@ -46,7 +45,48 @@ const createUser = async (req, res) => {
     });
   }
 };
-
+const loginUser = async (req, res) => {
+  try {
+    //#1. Lấy ra dữ liệu & validation
+    const { email, name, password, confirmPassword, phone } = req.body;
+    console.log("req", req.body);
+    const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const isCheckEmail = regexEmail.test(email);
+    if (!email || !password) {
+      return res.status(200).json({
+        status: "Error",
+        message: "Vui lòng nhập đầy đủ !",
+        EC: 0,
+      });
+    } else if (!isCheckEmail) {
+      return res.status(200).json({
+        status: "Error",
+        message: "Tài khoản chưa đúng định dạng email !",
+        EC: 0,
+      });
+    }
+    //#2 truyền qua service xử lý logic
+    const data = await UserService.loginUser(req.body);
+    const { refresh_token, ...newData } = data;
+    res.cookie("refresh_token", refresh_token, {
+      httpOnly: true, // giúp ta chỉ lấy đc cookie qua http thôi
+      secure: false, // bảo mật phía client
+      // sameSite: 'strict',
+      // path: '/'
+    });
+    return res.status(200).json({
+      message: newData,
+      refresh_token,
+    });
+  } catch (error) {
+    return res.status(404).json({
+      status: "err",
+      message: error,
+      EC: 0,
+    });
+  }
+};
 module.exports = {
   createUser,
+  loginUser,
 };
