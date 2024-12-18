@@ -123,12 +123,23 @@ const getDetailOrder = async (req, res) => {
     });
   }
 };
-
+const cancelOrderProduct = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = req.body;
+    const response = await OrderService.cancelOrderProduct(id, data);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json({
+      message: error,
+    });
+  }
+};
 
 
 module.exports = {
   getAllOrderDetailsByMonth,
   createOrder, getAllOder,
   getAllOrderDetails, getAllType,
-  getDetailOrder
+  getDetailOrder, cancelOrderProduct
 };

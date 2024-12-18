@@ -19,6 +19,7 @@ const OrderRouter = (app) => {
   );
   router.get("/get-all-type", OrderController.getAllType);
   router.get("/get-details-order/:id", OrderController.getDetailOrder);
+  router.delete("/cancel-order/:id", OrderController.cancelOrderProduct);
 
   return app.use("/api/order", router);
 };

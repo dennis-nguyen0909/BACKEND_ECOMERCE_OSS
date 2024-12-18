@@ -216,11 +216,66 @@ const getDetailOrder = (id) => {
     }
   });
 };
+const cancelOrderProduct = (id, data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let order = [];
+      const promise = data?.map(async (order) => {
+        const productData = await Product.findOneAndUpdate(
+          {
+            _id: order?.product,
+            selled: { $gte: order?.amount },
+          },
+          {
+            $inc: {
+              countInStock: +order.amount,
+              selled: -order.amount,
+            },
+          },
+          {
+            new: true,
+          }
+        );
+        if (productData) {
+          order = await Order.findByIdAndDelete(id);
+          if (order === null) {
+            resolve({
+              EC: 0,
+              EM: "Order is not defined",
+            });
+          }
+        } else {
+          return {
+            status: "ok",
+            message: "err",
+            id: order.product,
+          };
+        }
+      });
+      const result = await Promise.all(promise);
+      const newData = result && result.filter((item) => item);
+      if (newData.length) {
+        resolve({
+          EC: 0,
+          ES: "ERROR",
+          EM: "Sản phẩm không tồn tại",
+        });
+      }
+      resolve({
+        EC: 1,
+        ES: "SUCCESS",
+        data: order,
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 
 
 module.exports = {
   getAllOrderDetailsByMonth,
    createOrder, getAllOder,
    getAllOrderDetails, getAllType,
-   getDetailOrder
+   getDetailOrder, cancelOrderProduct
 };
