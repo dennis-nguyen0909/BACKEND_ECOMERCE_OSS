@@ -21,6 +21,7 @@ const OrderRouter = (app) => {
   router.get("/get-details-order/:id", OrderController.getDetailOrder);
   router.delete("/cancel-order/:id", OrderController.cancelOrderProduct);
   router.post("/delete-many/", OrderController.deleteManyOrder);
+  router.put("/confirm-order/:id", OrderController.confirmOrder);
 
   return app.use("/api/order", router);
 };

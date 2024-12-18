@@ -292,11 +292,37 @@ const deleteManyOrder = (ids) => {
   });
 };
 
+const confirmOrder = (orderId, statusOr, statusDelivery) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const check = statusDelivery === "true" ? true : false;
+      const order = await Order.findByIdAndUpdate(
+        orderId,
+        { status: statusOr, isDelivered: check },
+        { new: true }
+      );
+      if (order === null) {
+        resolve({
+          status: "ERR",
+          message: "The order is not defined",
+        });
+      }
+      resolve({
+        status: "OK",
+        message: "SUCESSS",
+        data: order,
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 
 module.exports = {
   getAllOrderDetailsByMonth,
    createOrder, getAllOder,
    getAllOrderDetails, getAllType,
    getDetailOrder, cancelOrderProduct,
-   deleteManyOrder
+   deleteManyOrder, confirmOrder
 };
