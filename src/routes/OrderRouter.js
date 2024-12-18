@@ -17,6 +17,8 @@ const OrderRouter = (app) => {
     authUserMiddleware,
     OrderController.getAllOrderDetails
   );
+  router.get("/get-all-type", OrderController.getAllType);
+
   return app.use("/api/order", router);
 };
 

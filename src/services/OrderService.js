@@ -168,11 +168,42 @@ const getAllOrderDetails = (id) => {
     }
   });
 };
+const getAllType = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const result = await Order.aggregate([
+        {
+          $unwind: "$orderItems", // Tách các mục trong mảng orderItems
+        },
+        {
+          $group: {
+            _id: "$orderItems.type", // Nhóm theo loại sản phẩm
+            count: { $sum: 1 }, // Đếm số lượng đơn hàng trong từng nhóm
+          },
+        },
+        {
+          $project: {
+            _id: 0, // Ẩn trường _id
+            type: "$_id", // Đổi tên trường _id thành type
+            count: 1, // Giữ trường count
+          },
+        },
+      ]);
 
+      resolve({
+        status: "OK",
+        message: "Success",
+        data: result,
+      });
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
 
 
 module.exports = {
   getAllOrderDetailsByMonth,
    createOrder, getAllOder,
-   getAllOrderDetails
+   getAllOrderDetails, getAllType
 };
