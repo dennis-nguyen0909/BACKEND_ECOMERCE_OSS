@@ -12,6 +12,12 @@ const UserRouter = (app) => {
   router.delete("/delete-user/:id", authMiddleware, UserController.deleteUser);
   router.get("/getAll", authMiddleware, UserController.getAllUser);
   router.get("/getAllUser", authMiddleware, UserController.getAllUser);
+  router.get(
+    "/get-details/:id",
+    authUserMiddleware,
+    UserController.getDetailUser
+  );
+
   return app.use("/api/user", router);
 };
 

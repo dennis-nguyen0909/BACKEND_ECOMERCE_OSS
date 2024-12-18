@@ -151,10 +151,33 @@ const getAllUser = () => {
     }
   });
 };
+const getDetailUser = (userId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const user = await User.findOne({
+        _id: userId,
+      });
+      if (user === null) {
+        resolve({
+          message: "User not defined!!",
+          status: "Error",
+        });
+      }
+      resolve({
+        status: "Ok",
+        message: " Success!!",
+        data: user,
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 module.exports = {
   createUser,
   loginUser,
   updateUser,
   deleteUser,
   getAllUser,
+  getDetailUser,
 };

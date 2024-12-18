@@ -137,10 +137,30 @@ const getAllUser = async (req, res) => {
     });
   }
 };
+const getDetailUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    if (!userId) {
+      return res.status(200).json({
+        message: "User is not defined!",
+        status: "Error",
+      });
+    }
+    const response = await UserService.getDetailUser(userId);
+    return res.status(200).json({
+      response,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      message: error,
+    });
+  }
+};
 module.exports = {
   createUser,
   loginUser,
   updateUser,
   deleteUser,
   getAllUser,
+  getDetailUser,
 };
