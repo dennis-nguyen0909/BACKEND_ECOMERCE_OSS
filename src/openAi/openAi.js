@@ -190,7 +190,136 @@ async function nodeNLP(message) {
   nlp.addDocument("vi", "những loại áo nào", "greetings.typeShirt");
   nlp.addDocument("vi", "shop có các loại giày nào", "greetings.typeShoes");
   nlp.addDocument("vi", "Đó là những loại giày nào", "greetings.typeShoes");
+  nlp.addDocument("vi", "hãy cho tôi xem các loại giày", "greetings.typeShoes");
+  nlp.addDocument("vi", "các loại giày", "greetings.typeShoes");
+  nlp.addDocument("vi", "hãy giới thiệu về shop bạn", "greetings.gioiThieu");
+  nlp.addDocument("vi", "Thông tin về shop bạn", "greetings.gioiThieu");
+  nlp.addDocument("vi", "Thông tin về shop bạn", "greetings.gioiThieu");
+  nlp.addDocument("vi", "Sneaker Asia là gì", "greetings.gioiThieu");
+  nlp.addDocument("vi", "shop bạn là gì", "greetings.gioiThieu");
+  nlp.addDocument("vi", "thông tin của shop", "greetings.gioiThieu");
+  nlp.addDocument("vi", "thông tin về shop", "greetings.gioiThieu");
+  nlp.addDocument("vi", "thông tin của Sneaker Asia", "greetings.gioiThieu");
+  nlp.addDocument("vi", "Áo thun là loại nào", "greetings.aothun");
+  nlp.addDocument("vi", "Áo thun là các thương hiệu nào", "greetings.aothun");
+  nlp.addDocument("vi", "cho tôi xem vài mẫu áo", "greetings.aothun");
+  nlp.addDocument("vi", "các loại áo nào", "greetings.aothun");
+  nlp.addDocument("vi", "các loại giày", "greetings.loaiGiay");
+  nlp.addDocument("vi", "loại giày nào", "greetings.loaiGiay");
+  nlp.addDocument("vi", "mẫu giày nào", "greetings.loaiGiay");
+  nlp.addDocument("vi", "mẫu giày nào", "greetings.loaiGiay");
+  nlp.addDocument("vi", "Có các loại giày nào", "greetings.loaiGiay");
+  nlp.addDocument("vi", "sản phẩm mới", "greetings.new");
+  nlp.addDocument("vi", "các sản phẩm mới nhất", "greetings.new");
+  nlp.addDocument("vi", "áo thun nào mới nhất", "greetings.new");
+  nlp.addDocument("vi", "loại giày nào mới nhất", "greetings.new");
+  nlp.addDocument("vi", "các cách để tìm kiếm sản phẩm", "greetings.new");
+  nlp.addDocument("vi", "Không", "greetings.No");
+  nlp.addDocument("vi", "No", "greetings.No");
+  nlp.addDocument("vi", "Mình không có câu hỏi", "greetings.No");
+  nlp.addDocument("vi", "Tạm biệt", "greetings.goodBye");
+  nlp.addDocument("vi", "gặp lại sau", "greetings.goodBye");
+  nlp.addDocument("vi", "tạm biệt nhé", "greetings.goodBye");
 
+  nlp.addDocument(
+    "vi",
+    "Dịch vụ chăm sóc khách hàng bên shop như thế nào",
+    "greetings.cskh"
+  );
+  nlp.addDocument(
+    "vi",
+    "Dịch vụ chăm sóc khách hàng của shop như thế nào",
+    "greetings.cskh"
+  );
+  nlp.addDocument("vi", "Dịch vụ chăm sóc khách hàng", "greetings.cskh");
+  nlp.addDocument(
+    "vi",
+    "Dịch vụ chăm sóc khách hàng như thế nào",
+    "greetings.cskh"
+  );
+  nlp.addDocument("vi", "Dịch vụ chăm sóc khách hàng ra sao", "greetings.cskh");
+  nlp.addDocument(
+    "vi",
+    "Dịch vụ chăm sóc khách hàng bên bạn",
+    "greetings.cskh"
+  );
+  nlp.addDocument(
+    "vi",
+    "shop bạn có những loại quần nào",
+    "greetings.typePant"
+  );
+  nlp.addDocument(
+    "vi",
+    "shop bạn có những loại giày nào",
+    "greetings.typeShoes"
+  );
+  nlp.addDocument("vi", "shop bạn có những loại áo nào", "greetings.typeShirt");
+  // Train also the NLG
+  nlp.addAnswer(
+    "en",
+    "greetings.hello",
+    "Chào bạn, tôi có thể giúp gì được cho bạn, tôi là nhân viên của Sneaker Asia !"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.adidas",
+    "Có nhé , hiện chúng tôi có vài mẫu adidas bạn có thể tham khảo trên website!"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.nike",
+    "Bạn hãy vào thanh tìm kiếm và search thử nike xem sao nhé !"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.discount",
+    "Bạn hãy click vào giảm giá và xem thử nhé!"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.size",
+    "Đối với áo , quần thì size sẽ là S M L XL . Đối với nón thì sẽ có size 1 và size 2 . Đối với balo thì sẽ là 1 size duy nhất!"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.address",
+    "Hiện shop chỉ bán online nên chưa có địa chỉ offline , bạn hãy thông cảm nhé !"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.freeship",
+    "Có nhé , nếu bạn mua trên 500k sẽ được free ship . Và 10k ship khi mua từ 200k - 500k , 30k ship khi dưới 200k nhé!"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.follow",
+    "Bạn có thể theo dõi đơn hàng của bạn trong phần đơn hàng của tôi và sẽ có trạng thái đơn hàng của bạn tại Sneaker Asia"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.baohanh",
+    "Chính sách bên mình là 1 đổi 1 khi sản phẩm bị lỗi trong vòng 3 ngày sẽ được đổi lại nhưng phải còn đầy đủ tag nhé!"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.tuVanSize",
+    "Tôi khuyến khích bạn nên chọn size S tại Sneaker Asia "
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.tuVanSize2",
+    "Đối với áo thì tôi khuyến khích bạn nên mang size XL nếu muốn rộng và L nếu muốn vừa tại Sneaker Asia "
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.price",
+    "Hiện áo bên shop tôi thì áo thun sẽ có giá từ 450k trở lên và áo sweater sẽ có giá từ 650k trở lên"
+  );
+  nlp.addAnswer(
+    "en",
+    "greetings.order",
+    "Trước tiên bạn sẽ cần phải đăng nhập / đăng ký (nếu chưa có tài khoản) . Sau đó bạn sẽ click vào sản phẩm bạn muốn mua và click thêm vào giỏ hàng , đi tiếp đến thanh toán và thanh toán. Sau khi thanh toán sẽ có email gửi về xác nhận cho bạn, bạn có thể theo dõi đơn hàng trong mục đơn hàng của tôi ."
+  );
   await nlp.train();
   const response = await nlp.process("vi", message);
   return response.answer;
