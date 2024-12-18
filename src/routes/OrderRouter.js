@@ -18,6 +18,7 @@ const OrderRouter = (app) => {
     OrderController.getAllOrderDetails
   );
   router.get("/get-all-type", OrderController.getAllType);
+  router.get("/get-details-order/:id", OrderController.getDetailOrder);
 
   return app.use("/api/order", router);
 };

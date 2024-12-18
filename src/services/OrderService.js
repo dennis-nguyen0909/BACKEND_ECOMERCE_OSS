@@ -200,10 +200,27 @@ const getAllType = () => {
     }
   });
 };
+const getDetailOrder = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const order = await Order.findById({
+        _id: id,
+      });
+      resolve({
+        EC: 1,
+        EM: "SUCCESS",
+        data: order,
+      });
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
 
 
 module.exports = {
   getAllOrderDetailsByMonth,
    createOrder, getAllOder,
-   getAllOrderDetails, getAllType
+   getAllOrderDetails, getAllType,
+   getDetailOrder
 };
