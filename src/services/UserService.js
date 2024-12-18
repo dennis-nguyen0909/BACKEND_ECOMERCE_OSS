@@ -115,8 +115,31 @@ const updateUser = (id, data) => {
     }
   });
 };
+const deleteUser = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const checkUser = await User.findOne({
+        _id: id,
+      });
+      if (checkUser === null) {
+        resolve({
+          message: "User not defined!!",
+          status: "OK",
+        });
+      }
+      await User.findByIdAndDelete(id);
+      resolve({
+        status: "Ok",
+        message: "Delete User Success!!",
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 module.exports = {
   createUser,
   loginUser,
   updateUser,
+  deleteUser,
 };
