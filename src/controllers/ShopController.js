@@ -13,5 +13,16 @@ const createNameShop = async (req, res) => {
     });
   }
 };
-
-module.exports = { createNameShop };
+const getAllShop = async (req, res) => {
+  try {
+    console.log("đã vô");
+    const response = await ShopService.getAllShop();
+    console.log("res", response);
+    return res.status(200).json({ response });
+  } catch (e) {
+    return res.status(500).json({
+      EM: "Error",
+    });
+  }
+};
+module.exports = { createNameShop, getAllShop };
