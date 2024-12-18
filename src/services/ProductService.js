@@ -263,6 +263,26 @@ const getAllTypeProduct = () => {
     })
 }
 
+const getAllDiscount = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const productsWithDiscount = await Product.find({ discount: { $exists: true } });
+            resolve({
+                status: 'Ok',
+                EC: 1,
+                message: 'Get all discount successfully!!',
+                data: productsWithDiscount
+            })
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
-    createProduct, updateProduct, deleteProduct,getDetailProduct, getAllProduct, getAllProduct2, deleteManyProduct, getAllTypeProduct
+    createProduct,
+     updateProduct, deleteProduct,
+     getDetailProduct, getAllProduct,
+      getAllProduct2, deleteManyProduct,
+       getAllTypeProduct, getAllDiscount
 }  

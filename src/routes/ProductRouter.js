@@ -12,6 +12,7 @@ const ProductRouter = (app) => {
     router.get('/get-all-product2', ProductController.getAllProduct2);
     router.post('/delete-many', authMiddleware, ProductController.deleteManyProduct);
     router.get('/get-all-type', ProductController.getAllTypeProduct);
+    router.get('/get-all-discount', ProductController.getAllDiscount);
     return app.use('/api/product', router);
 }
 
