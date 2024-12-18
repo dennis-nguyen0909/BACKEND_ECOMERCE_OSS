@@ -137,9 +137,24 @@ const deleteUser = (id) => {
     }
   });
 };
+const getAllUser = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const getUser = await User.find().sort({ createdAt: -1 });
+      resolve({
+        status: "Ok",
+        message: "Get All User Success!!",
+        data: getUser,
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 module.exports = {
   createUser,
   loginUser,
   updateUser,
   deleteUser,
+  getAllUser,
 };
