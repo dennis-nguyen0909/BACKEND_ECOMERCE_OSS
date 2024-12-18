@@ -10,11 +10,12 @@ const OrderRouter = (app) => {
     "/get-by-month/:month&:year",
     OrderController.getAllOrderDetailsByMonth
   );
+  router.post("/create", OrderController.createOrder);
+  router.get("/get-all-order", OrderController.getAllOder);
   
-
   return app.use("/api/order", router);
 };
 
-router.post("/create", OrderController.createOrder);
+
 
 module.exports = OrderRouter;
