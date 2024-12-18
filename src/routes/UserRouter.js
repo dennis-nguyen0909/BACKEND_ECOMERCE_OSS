@@ -17,7 +17,7 @@ const UserRouter = (app) => {
     authUserMiddleware,
     UserController.getDetailUser
   );
-
+  router.post("/delete-many", authMiddleware, UserController.deleteManyUser);
   return app.use("/api/user", router);
 };
 
