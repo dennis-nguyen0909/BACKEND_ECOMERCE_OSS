@@ -320,6 +320,127 @@ async function nodeNLP(message) {
     "greetings.order",
     "Trước tiên bạn sẽ cần phải đăng nhập / đăng ký (nếu chưa có tài khoản) . Sau đó bạn sẽ click vào sản phẩm bạn muốn mua và click thêm vào giỏ hàng , đi tiếp đến thanh toán và thanh toán. Sau khi thanh toán sẽ có email gửi về xác nhận cho bạn, bạn có thể theo dõi đơn hàng trong mục đơn hàng của tôi ."
   );
+  nlp.addAnswer(
+    "vi",
+    "greetings.who",
+    "Tôi là  trợ lý của Sneaker Asia , tôi sẽ giải đáp các thắc mắc của bạn !"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.phone",
+    "Bạn có thể liên hệ qua số 0898151737 ."
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.email",
+    "Bạn có thể liên hệ qua email sau : dennis.nguyen0909@gmail.com "
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.huyDonHang",
+    "Bạn ấn vào avatar của bạn và click vào đơn hàng của tôi và ấn hủy đơn hàng bạn muốn.Nhưng nếu đơn hàng đã được xác nhận và đang trong quá trình giao thì sẽ không được hủy ."
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.datThanhCong",
+    "Khi bạn đặt hàng thành công sẽ có email gửi về cho email của bạn ."
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.aoMLB",
+    "Hiện áo thun MLB có giá từ 450k trở lên bạn có thể xem trong mục Sản phẩm / áo thun nhé ."
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.sale",
+    "Để xem sản phẩm đang giảm giá bạn có thể vào trong mục Giảm Giá để xem nhé !"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.pay",
+    "Hiện cửa hàng chúng tôi cho phép thanh toán qua 2 hình thức gồm : thanh toán bằng tiền mặt / thanh toán qua paypal"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.detailOrder",
+    "Bạn có thể xem đơn hàng của bạn bằng cách click vào avatar và đơn hàng của tôi . Click vào chi tiết để xem chi tiết hơn đơn hàng ."
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.thanks",
+    "Không có gì. Bạn còn câu hỏi nào không ?"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.listProduct",
+    "Hiện shop đang có các sản phẩm như áo , quần , giày , nón , balo .Bạn có thể tham khảo trong website nhé!"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.facebook",
+    "Tất nhiên là có . Bạn có thể lướt xuống cùng và click vào facebook trong footer nhé !"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.searchProduct",
+    "Có 2 cách tìm kiếm . Tìm kiếm bằng cách seach hoặc tìm kiếm bằng giọng nói"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.typeShirt",
+    "Hiện bên shop gồm các loại áo thun , áo khoác , áo hoodie . Bạn có thể tham khảo trong mục sản phẩm nhé"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.typePant",
+    "Hiện bên shop gồm các loại quần ngắn , quần dài .Bạn có thể tham khảo trong mục sản phẩm nhé"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.typeShoes",
+    "Hiện bên shop gồm các loại giày như là giày nike , giày adidas , giày samba , giày mlb và .... Bạn hãy tham khảo thử nhé !"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.gioiThieu",
+    "Chào mừng đến với Sneaker Asia - nơi kết nối đam mê và phong cách trong thế giới của giày thể thao và quần áo. Tại Sneaker Asia, chúng tôi không chỉ cung cấp những đôi giày chất lượng cao từ các thương hiệu hàng đầu trên thị trường, mà còn là điểm đến của sự sáng tạo và sự cá nhân hóa.Hãy khám phá thế giới của Sneaker Asia ngay hôm nay và biến đôi giày của bạn thành một tuyên bố phong cách không thể phủ nhận!"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.typeHat",
+    "Nón bên shop hiện chưa có đa dạng nên chỉ có vài mẫu nón như MLB bạn có thể xem tham khảo trong sản phẩm của chúng tôi !"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.aothun",
+    "Áo thun thì gồm các loại áo MLB và nhiều màu khác nhau .Bạn hãy vào website xem nhé!"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.loaiGiay",
+    "Bên shop gồm các loại giày như : Samba , Adidas , Nike , MLB ....."
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.cskh",
+    "Tại chúng tôi, dịch vụ chăm sóc khách hàng không chỉ là một trách nhiệm, mà còn là cam kết của chúng tôi để đảm bảo mọi trải nghiệm của bạn là hoàn hảo nhất có thể. Chúng tôi hiểu rằng bạn là một phần không thể thiếu trong thành công của chúng tôi, và vì vậy, chúng tôi cam kết cung cấp cho bạn sự chăm sóc tận tâm và chuyên nghiệp.Đội ngũ chăm sóc khách hàng của chúng tôi luôn sẵn sàng lắng nghe và giải quyết mọi thắc mắc hay yêu cầu từ bạn. Với sự am hiểu sâu sắc về sản phẩm và dịch vụ của chúng tôi, họ sẽ giúp bạn tìm ra giải pháp phù hợp nhất để đáp ứng nhu cầu của bạn.Chúng tôi luôn đặt khách hàng lên hàng đầu và luôn xem xét mọi phản hồi và góp ý để cải thiện dịch vụ của chúng tôi. Với chúng tôi, không có gì quan trọng hơn việc đảm bảo bạn cảm thấy hài lòng và tin tưởng khi sử dụng sản phẩm và dịch vụ của chúng tôi.Hãy để chúng tôi chăm sóc bạn, và để chúng tôi biến mọi trải nghiệm của bạn trở nên đáng nhớ và thú vị!"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.new",
+    "Hiện các sản phẩm mới bên shop sẽ hiển thị tại trang chủ chính thức bạn hãy lướt xuống và xem nhé !"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.Yes",
+    "Tất nhiên rồi bạn hãy đặt câu hỏi mình sẽ giải đáp cho nhé !"
+  );
+  nlp.addAnswer(
+    "vi",
+    "greetings.No",
+    "Vậy cũng tốt thôi , chúc bạn 1 ngày tốt lành !"
+  );
+  nlp.addAnswer("vi", "greetings.goodBye", "Tạm biệt nhé , hẹn gặp lại sau !");
   await nlp.train();
   const response = await nlp.process("vi", message);
   return response.answer;
