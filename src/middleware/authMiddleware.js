@@ -21,4 +21,25 @@ const authMiddleware = (req, res, next) => {
     }
   });
 };
-module.exports = { authMiddleware };
+const authUserMiddleware = (req, res, next) => {
+  const token = req.headers.token.split(" ")[1];
+  const userId = req.params.id;
+  jwt.verify(token, process.env.ACCESS_TOKEN, function (err, user) {
+    if (err) {
+      return res.status(404).json({
+        message: "The authentication",
+        status: "Error",
+      });
+    }
+    if (user?.isAdmin || user?.id === userId) {
+      // nếu có quyền là admin cho đi tiếp
+      next();
+    } else {
+      return res.status(404).json({
+        message: "Không có quyền admin",
+        status: "Error",
+      });
+    }
+  });
+};
+module.exports = { authMiddleware, authUserMiddleware };
