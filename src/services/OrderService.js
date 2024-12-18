@@ -318,11 +318,49 @@ const confirmOrder = (orderId, statusOr, statusDelivery) => {
   });
 };
 
+const getRevenueByMonth = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const result = await Order.aggregate([
+        {
+          $group: {
+            _id: {
+              year: { $year: "$createdAt" },
+              month: { $month: "$createdAt" },
+            },
+            totalRevenue: { $sum: "$totalPrice" },
+          },
+        },
+        {
+          $sort: { "_id.year": 1, "_id.month": 1 },
+        },
+        {
+          $project: {
+            _id: 0,
+            year: "$_id.year",
+            month: "$_id.month",
+            totalRevenue: 1,
+          },
+        },
+      ]);
+
+      resolve({
+        status: "OK",
+        message: "Success",
+        data: result,
+      });
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
+
 
 module.exports = {
   getAllOrderDetailsByMonth,
    createOrder, getAllOder,
    getAllOrderDetails, getAllType,
    getDetailOrder, cancelOrderProduct,
-   deleteManyOrder, confirmOrder
+   deleteManyOrder, confirmOrder,
+   getRevenueByMonth
 };

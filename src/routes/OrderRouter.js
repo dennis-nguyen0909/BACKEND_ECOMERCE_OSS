@@ -22,6 +22,7 @@ const OrderRouter = (app) => {
   router.delete("/cancel-order/:id", OrderController.cancelOrderProduct);
   router.post("/delete-many/", OrderController.deleteManyOrder);
   router.put("/confirm-order/:id", OrderController.confirmOrder);
+  router.get("/get-revenue-by-month", OrderController.getRevenueByMonth);
 
   return app.use("/api/order", router);
 };
