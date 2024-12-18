@@ -41,6 +41,28 @@ const updateProduct = async (req, res) => {
     }
 }
 
+const getDetailProduct = async (req, res) => {
+    try {
+        const idUser = req.params.id;
+        if (!idUser) {
+            return res.status(404).json({
+                status: "Error",
+                message: "Vui lòng nhập id Product"
+            })
+        }
+        const response = await ProductService.getDetailProduct(idUser);
+        return res.status(200).json({
+            status: "Ok",
+            response
+        })
+    } catch (error) {
+        return res.status(404).json({
+            status: "Error",
+            message: "Lỗi phía controller"
+        })
+    }
+}
+
 module.exports = {
-    createProduct, updateProduct
+    createProduct, updateProduct, getDetailProduct
 }

@@ -5,15 +5,7 @@ const { authMiddleware } = require('../middleware/authMiddleware')
 const ProductRouter = (app) => {
     router.post('/create', ProductController.createProduct);
     router.put('/update/:id', authMiddleware, ProductController.updateProduct);
-    router.delete('/delete/:id', authMiddleware, ProductController.deleteProduct);
     // router.get('/details/:id', authMiddleware, ProductController.getDetailProduct);
-    router.get('/details/:id', ProductController.getDetailProduct);
-    router.get('/get-all-product', ProductController.getAllProduct);
-    router.get('/get-all-product2', ProductController.getAllProduct2);
-    router.post('/delete-many', authMiddleware, ProductController.deleteManyProduct);
-    router.get('/get-all-type', ProductController.getAllTypeProduct);
-    router.get('/get-all-discount', ProductController.getAllDiscount);
-
     return app.use('/api/product', router);
 }
 
