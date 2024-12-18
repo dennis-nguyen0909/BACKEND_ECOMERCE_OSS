@@ -15,4 +15,6 @@ const OrderRouter = (app) => {
   return app.use("/api/order", router);
 };
 
+router.post("/create", OrderController.createOrder);
+
 module.exports = OrderRouter;
