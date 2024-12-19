@@ -69,6 +69,7 @@ const loginUser = async (req, res) => {
     }
     //#2 truyền qua service xử lý logic
     const data = await UserService.loginUser(req.body);
+    console.log("data", data);
     const { refresh_token, ...newData } = data;
     res.cookie("refresh_token", refresh_token, {
       httpOnly: true, // giúp ta chỉ lấy đc cookie qua http thôi

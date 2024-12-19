@@ -1,5 +1,6 @@
 const User = require("../models/UserModel");
 const bcrypt = require("bcrypt");
+const { generalAccessToken, generalRefreshToken } = require("./JWTservice");
 const createUser = (data) => {
   return new Promise(async (resolve, reject) => {
     //#1 Lấy data được truyền từ controller
@@ -40,6 +41,7 @@ const loginUser = (userLogin) => {
     //#1 Lấy data được truyền từ controller
     const { email, password } = userLogin;
     try {
+      console.log("duydeptrai", email, password);
       //#2 Kiểm tra nếu user đã tồn tại trong db thì cho login
       const checkUserExist = await User.findOne({
         email: email,

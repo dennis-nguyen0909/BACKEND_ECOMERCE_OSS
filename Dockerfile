@@ -20,8 +20,6 @@ CMD ["npm", "start"]
 
 #docker pull minhduyyy/backend-ecomerce-oss_v1:tag
 
-
-
 # docker run -p 8080:8080 minhduyyy/backend-ecomerce-oss_v1:tag
 
 
